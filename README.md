@@ -3,7 +3,7 @@ AMI base image(ubuntu 16.04):
 * ami-6c8b7514: mcr: base T-SNE
 
 # AMI creation in AWS
-### 1. create new AMI instance
+  1. create new AMI instance
 ```#security-groups: jupyterhub, matlab(we use this one here)
 aws ec2 run-instances --image-id ami-6c8b7514 --count 1 --instance-type t2.micro --key-name jaja --security-groups {security-groups} | grep InstanceId
 # return "InstanceId": "i-0e1c106480562bc33"
@@ -11,7 +11,7 @@ aws ec2 run-instances --image-id ami-6c8b7514 --count 1 --instance-type t2.micro
 # How to create a new instance with specific volume size using --block-device-mapping
 aws ec2 run-instances --image-id ami-6c8b7514 --count 1 --instance-type t2.large --key-name jaja --security-groups matlab --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 50 } } ]" | grep InstanceId```
 
-### 2. get ip address of the instance
+  2. get ip address of the instance
 ```aws ec2 describe-instances --instance-ids {instance-id} | grep PublicIpAddress```
 
 #### 3. Login the instance 
