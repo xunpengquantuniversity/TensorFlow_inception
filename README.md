@@ -80,3 +80,22 @@ AMI base image(ubuntu 16.04):
     pip install tensorflow-serving-api
 ### 4. test service
     python /default-path/serving/tensorflow_serving/example/inception_client.py --server={AWS instance ip}:9000 --image=/default-path/image_inception.jpg
+
+
+# Set up Server
+### 1. create new AWI instance
+    aws ec2 run-instances --image-id ami-09c50071 --count 1 --instance-type t2.micro --key-name jaja --security-groups {security-groups} | grep InstanceId
+
+### 2. get ip address of the instance
+    
+    aws ec2 describe-instances --instance-ids {instance-id} | grep PublicIpAddress
+    
+### 3. Login the instance 
+    
+    ssh -i jaja.pem ubuntu@{ip}
+    
+### 4. start docker instance in AMI and get in docker instance shell
+    sudo docker start -i bbd41f1fa1c8
+
+### 5. start service in docker instance
+    tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/root/serving/inception-export/
