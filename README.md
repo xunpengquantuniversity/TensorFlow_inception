@@ -2,7 +2,8 @@
 AMI base image(ubuntu 16.04): 
 * ami-6c8b7514: mcr: base T-SNE
 
-# AMI creation in AWS
+# Server 
+## AMI creation in AWS
 ###  1. create new AMI instance
     
     #security-groups: jupyterhub, matlab(we use this one here)
@@ -66,3 +67,4 @@ AMI base image(ubuntu 16.04):
     aws ec2 create-image --instance-id {instance you want to create} --name "TensorFlow Inception AMI" --description "This is a AMI for TensorFlow AMI"
     # return a New AMI image: "ImageId": "ami-09c50071"
     
+# Client
