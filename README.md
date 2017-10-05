@@ -68,3 +68,15 @@ AMI base image(ubuntu 16.04):
     # return a New AMI image: "ImageId": "ami-09c50071"
     
 # Client
+### 1. Get the TensorFlow Serving
+    # It is pretty simple — just clone the repository:
+    cd ~
+    git clone --recurse-submodules https://github.com/tensorflow/serving.git
+    
+### 2. Download image from website to default folder
+    https://www.google.com/search?q=cat+256*256&tbm=isch&tbo=u&source=univ&sa=X&ved=0ahUKEwir-cPQ6tnWAhWCQCYKHXDnDXMQsAQIJw&biw=1440&bih=782#imgrc=4LAEY17JmVkiQM:
+    Place this image to current folder and rename it to image_inception.jpg
+### 3. install TensorFlow Serving Python API PIP package
+    pip install tensorflow-serving-api
+### 4. test service
+    python /default-path/serving/tensorflow_serving/example/inception_client.py --server={AWS instance ip}:9000 --image=/default-path/image_inception.jpg
