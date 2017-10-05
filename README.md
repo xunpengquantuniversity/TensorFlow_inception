@@ -42,14 +42,8 @@ AMI base image(ubuntu 16.04):
     docker login ganecr.azurecr.io -u=ganEcr -p=<password value from credentials>
     
 
-### 7. Run Docker images bind port 9000 in container to localhost:9000
-    
-    sudo docker run -ti -p 9000:9000 ganecrxunpeng.azurecr.io/tensorflow-serving /bin/bash
-    
-
-#### 8. Start tensorflow service in docker container
-    
-    tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/root/serving/inception-export/
+### 7. Run Docker images bind port 9000 in container to localhost:9000 and create a new container
+    sudo docker run -p 9000:9000 ganecrxunpeng.azurecr.io/tensorflow-serving tensorflow_model_server  --port=9000 --model_name=inception --model_base_path=/root/serving/inception-export
     
 
 ### 9. Consume service from remote host:
