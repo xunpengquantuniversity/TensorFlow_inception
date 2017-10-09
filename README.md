@@ -101,3 +101,6 @@ AMI base image(ubuntu 16.04):
 
 # Flask API
 http://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/
+
+# new image: ami-c4b87fbc
+### 1. continue do flask API with image_submission
