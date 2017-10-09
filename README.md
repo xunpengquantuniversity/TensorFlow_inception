@@ -96,6 +96,8 @@ AMI base image(ubuntu 16.04):
 
 # server and secondary service
     python /home/ubuntu/serving/tensorflow_serving/example/inception_client.py --server=localhost:9000 --image=/home/ubuntu/image3.jpg
+### cp picture from docker container to local AMI 
+    sudo docker cp 99df3a5bc0ac:/root/serving/image3.jpg .
 
 # Flask API
 http://www.datasciencebytes.com/bytes/2015/02/24/running-a-flask-app-on-aws-ec2/
