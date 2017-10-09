@@ -93,3 +93,6 @@ AMI base image(ubuntu 16.04):
 
 ### 5. start service in docker instance
     tensorflow_model_server --port=9000 --model_name=inception --model_base_path=/root/serving/inception-export/
+
+# server and secondary service
+    python /home/ubuntu/serving/tensorflow_serving/example/inception_client.py --server=localhost:9000 --image=/home/ubuntu/image3.jpg
